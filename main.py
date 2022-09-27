@@ -1,5 +1,8 @@
+"""var clients saves name of clients"""
 clients = "David, Angeles, "
 
+
+"""this function add the name clients with the capital letter"""
 def create_client(client_name):
     global clients
     if client_name not in clients:
@@ -8,7 +11,7 @@ def create_client(client_name):
     else:
         print("The client is already in the clients list")
 
-
+"""this function shows the clients list"""
 def list_clients():
     global clients
     print(clients)
@@ -17,7 +20,7 @@ def _add_comma():
     global clients
     clients += ", "
 
-
+"""elcome message to clients"""
 def _print_welcome():
     print("Welcome to my store page:")
     print("*" * 50)
