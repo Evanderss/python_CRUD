@@ -1,9 +1,12 @@
-clients = "david, angeles, "
+clients = "David, Angeles, "
 
 def create_client(client_name):
     global clients
-    clients += client_name
-    _add_comma()
+    if client_name not in clients:
+        clients += client_name.capitalize()
+        _add_comma()
+    else:
+        print("The client is already in the clients list")
 
 
 def list_clients():
@@ -24,7 +27,7 @@ def _print_welcome():
 
 if __name__ == '__main__':
     _print_welcome()
-    command = input()
+    command = input().upper()
     if command == "C":
         client_name = input("What is the client name?")
         create_client(client_name)
@@ -33,3 +36,4 @@ if __name__ == '__main__':
         pass
     else: 
         print("Invalid command")
+        
