@@ -1,8 +1,8 @@
 clients = "david, angeles, "
 
-def create_client(client_id):
+def create_client(client_name):
     global clients
-    clients += client_id
+    clients += client_name
     _add_comma()
 
 
@@ -16,13 +16,20 @@ def _add_comma():
 
 
 def _print_welcome():
-    print("Welcome to my CRUD example page")
+    print("Welcome to my store page:")
     print("*" * 50)
     print("What would you like to do today?")
     print("[C]reate")
     print("[D]elete")
 
 if __name__ == '__main__':
-    list_clients()
-    create_client("evander")
-    print(clients)
+    _print_welcome()
+    command = input()
+    if command == "C":
+        client_name = input("What is the client name?")
+        create_client(client_name)
+        list_clients()
+    elif command == "D":
+        pass
+    else: 
+        print("Invalid command")
