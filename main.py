@@ -1,5 +1,5 @@
 import sys
-clients = "David, Angeles, "
+clients = ["David", "Angeles" ]
 """var clients saves name of clients"""
 
 
@@ -7,23 +7,23 @@ def create_client(client_name):
     """this function add the name clients with the capital letter"""
     global clients
     if client_name not in clients:
-        clients += client_name.capitalize()
-        _add_comma()
+        clients.append(client_name.capitalize())
     else:
         print("The client is already in the clients list")
 
 
 def list_clients():
     """this function shows the clients list"""
-    global clients
-    print(clients)
+    for index, client in enumerate(clients):
+        print(f"{index}: {client}")
 
 
 def update_client(client_name, updated_client_name):
     """this function update data about clients"""
     global clients
     if client_name in clients:
-        clients = clients.replace(client_name + ",", updated_client_name + ",")
+        index = clients.index(client_name)
+        clients[index] = updated_client_name
     else:
         print("Client is not in the clients list")
 
@@ -31,24 +31,17 @@ def update_client(client_name, updated_client_name):
 def delete_client(client_name):
     global clients
     if client_name in clients:
-        clients = clients.replace(client_name + ",", "")
+        clients.remove(client_name)
     else: 
         print("Client is not in the clients list")
 
 
 def search_client(client_name):
-    clients_list = clients.split(",")
-
-    for client in clients_list:
+    for client in clients:
         if client != client_name:
             continue
         else:
             return True
-
-
-def _add_comma():
-    global clients
-    clients += ", "
 
 
 def _print_welcome():
