@@ -1,17 +1,16 @@
-import sys
-clients = [
-    {
-        "name": "David",
-        "company": "Facebook",
-        "position": "Java Developer",
-    },
-    {
-        "name": "Angeles",
-        "company": "Canvas",
-        "position": "Designer",
-    }
-]
-"""var clients saves name of clients"""
+import csv
+
+CLIENT_TABLE = ".clients.csv"
+CLIENT_SCHEMA = ["name", "company", "position"]
+clients = []
+
+
+def _initialize_clients_from_storage():
+    with open(CLIENT_TABLE, mode="r") as f:
+        reader = csv.DictReader(f, fieldnames=CLIENT_SCHEMA)
+
+        for row in reader:
+            clients.append(row)
 
 
 def create_client(client):
